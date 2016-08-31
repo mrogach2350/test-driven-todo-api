@@ -2,10 +2,10 @@
 var express = require('express'),
     app = express(),
     bodyParser = require('body-parser');
-    
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/todo-app-demo');
-
+var Todo = require('.models/todo');
 // configure bodyParser (for receiving form data)
 app.use(bodyParser.urlencoded({ extended: true }));
 
