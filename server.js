@@ -2,6 +2,9 @@
 var express = require('express'),
     app = express(),
     bodyParser = require('body-parser');
+    
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/todo-app-demo');
 
 // configure bodyParser (for receiving form data)
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -110,7 +113,7 @@ app.put('/api/todos/:id', function update(req, res) {
 app.delete('/api/todos/:id', function destroy(req, res) {
   for (var i = 0; i < todos.length; i ++){
     if(todos[i]._id == req.params.id){
-      todos.splice(i,i);
+      todos.splice(i,i)
     }
   }
   res.send(todos);
